@@ -6,7 +6,10 @@ import PropTypes from "prop-types";
 export const EditContact = props => {
 	const { store, actions } = useContext(Context);
 
-	let contact = store.contacts[props.match.params.index];
+	let contact =
+		store.contacts.length > 0
+			? store.contacts[props.match.params.index]
+			: { };
 
 	const [full_name, setFull_name] = useState(contact.full_name);
 	const [email, setEmail] = useState(contact.email);
